@@ -19,6 +19,10 @@ const WaterReminder = () => {
       });
 
       if (reminders.includes(currentTime)) {
+        // Toca o som do sino
+        const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2400/2400-preview.mp3');
+        audio.play().catch(error => console.log('Erro ao tocar som:', error));
+
         toast({
           title: "Hora de beber água! 💧",
           description: "Mantenha-se hidratado para uma vida mais saudável!",
