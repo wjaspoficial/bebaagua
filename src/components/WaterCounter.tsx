@@ -1,5 +1,5 @@
 import React from 'react';
-import { Glass } from 'lucide-react';
+import { GlassWater } from 'lucide-react';
 
 interface WaterCounterProps {
   count: number;
@@ -11,7 +11,7 @@ const WaterCounter = ({ count }: WaterCounterProps) => {
   return (
     <div className="relative w-32 h-32">
       <div className="absolute inset-0 flex items-center justify-center">
-        <Glass className="w-24 h-24 text-blue-300" />
+        <GlassWater className="w-24 h-24 text-blue-300" />
       </div>
       <div 
         className="absolute bottom-0 left-0 right-0 bg-blue-400 transition-all duration-500 rounded-b-lg"

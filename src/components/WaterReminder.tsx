@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Bell, Plus, Minus, Glass } from 'lucide-react';
+import { Bell, Plus, Minus, GlassWater } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import TimeSelector from './TimeSelector';
