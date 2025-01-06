@@ -11,14 +11,21 @@ const WaterReminder = () => {
   const { toast } = useToast();
 
   useEffect(() => {
+    console.log('Lembretes configurados:', reminders); // Log para debug
+
     const checkTime = () => {
       const now = new Date();
       const currentTime = now.toLocaleTimeString('pt-BR', { 
         hour: '2-digit', 
-        minute: '2-digit' 
+        minute: '2-digit',
+        hour12: false 
       });
+      
+      console.log('Hora atual:', currentTime); // Log para debug
 
       if (reminders.includes(currentTime)) {
+        console.log('Horário encontrado! Tocando sino...'); // Log para debug
+        
         // Toca o som do sino
         const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2400/2400-preview.mp3');
         audio.play().catch(error => console.log('Erro ao tocar som:', error));
@@ -30,7 +37,12 @@ const WaterReminder = () => {
       }
     };
 
-    const interval = setInterval(checkTime, 60000); // Checa a cada minuto
+    // Checa a cada 30 segundos para não perder o horário exato
+    const interval = setInterval(checkTime, 30000);
+    
+    // Checa imediatamente ao montar o componente
+    checkTime();
+
     return () => clearInterval(interval);
   }, [reminders, toast]);
 
