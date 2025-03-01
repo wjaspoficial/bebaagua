@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Bell, Plus, Minus, GlassWater } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -24,10 +25,10 @@ const WaterReminder = () => {
       console.log('Hora atual:', currentTime); // Log para debug
 
       if (reminders.includes(currentTime)) {
-        console.log('Horário encontrado! Tocando sino...'); // Log para debug
+        console.log('Horário encontrado! Tocando som de bebendo água...'); // Log para debug
         
-        // Toca o som do sino
-        const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2400/2400-preview.mp3');
+        // Toca o som de alguém bebendo água
+        const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/40/40-preview.mp3');
         audio.play().catch(error => console.log('Erro ao tocar som:', error));
 
         toast({
