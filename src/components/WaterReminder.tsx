@@ -45,10 +45,10 @@ const WaterReminder = () => {
       console.log('Hora atual:', currentTime); // Log para debug
 
       if (reminders.includes(currentTime)) {
-        console.log('Horário encontrado! Tocando som de sino...'); // Log para debug
+        console.log('Horário encontrado! Tocando som de alerta...'); // Log para debug
         
-        // Toca um som de sino
-        const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
+        // Toca o novo som de alerta
+        const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2861/2861-preview.mp3');
         audio.play().catch(error => console.log('Erro ao tocar som:', error));
 
         toast({
@@ -82,8 +82,15 @@ const WaterReminder = () => {
   };
 
   return (
-    <div className="flex flex-col items-center space-y-8 p-6">
-      <h1 className="text-3xl font-bold text-blue-500">Lembrete de Água</h1>
+    <div className="flex flex-col items-center space-y-8 p-6 border-4 border-blue-500 rounded-xl shadow-lg max-w-4xl mx-auto">
+      <div className="flex flex-col items-center">
+        <img 
+          src="/lovable-uploads/ee6ed223-7a60-4f4c-8404-71b797976840.png" 
+          alt="Astra Digitals Logo" 
+          className="w-64 mb-4"
+        />
+        <h1 className="text-3xl font-bold text-blue-500">Beba Água</h1>
+      </div>
       
       <div className="flex flex-col items-center space-y-4">
         <WaterCounter count={waterCount} onAdd={addWater} onRemove={removeWater} />
