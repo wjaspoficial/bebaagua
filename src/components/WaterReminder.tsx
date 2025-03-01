@@ -82,7 +82,7 @@ const WaterReminder = () => {
   };
 
   return (
-    <div className="flex flex-col items-center space-y-8 p-6 border-4 border-blue-500 rounded-xl shadow-lg max-w-4xl mx-auto">
+    <div className="flex flex-col items-center space-y-8 p-6 border-4 border-primary rounded-xl shadow-lg max-w-4xl mx-auto">
       <div className="flex flex-col items-center">
         <img 
           src="/lovable-uploads/ee6ed223-7a60-4f4c-8404-71b797976840.png" 
