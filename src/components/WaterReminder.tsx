@@ -45,10 +45,10 @@ const WaterReminder = () => {
       console.log('Hora atual:', currentTime); // Log para debug
 
       if (reminders.includes(currentTime)) {
-        console.log('Horário encontrado! Tocando som de bebendo água...'); // Log para debug
+        console.log('Horário encontrado! Tocando som de sino...'); // Log para debug
         
-        // Toca o som de alguém bebendo água
-        const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/40/40-preview.mp3');
+        // Toca um som de sino
+        const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
         audio.play().catch(error => console.log('Erro ao tocar som:', error));
 
         toast({
