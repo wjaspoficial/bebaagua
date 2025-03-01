@@ -5,11 +5,31 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import TimeSelector from './TimeSelector';
 import WaterCounter from './WaterCounter';
+import WaterBenefitCard from './WaterBenefitCard';
 
 const WaterReminder = () => {
   const [waterCount, setWaterCount] = useState(0);
   const [reminders, setReminders] = useState<string[]>([]);
+  const [currentBenefit, setCurrentBenefit] = useState("");
   const { toast } = useToast();
+
+  // Lista de benefícios de beber água
+  const waterBenefits = [
+    "Ajuda a regular a temperatura corporal.",
+    "Mantém as articulações lubrificadas.",
+    "Previne infecções, mantendo os órgãos funcionando adequadamente.",
+    "Melhora a qualidade do sono, humor e cognição.",
+    "Ajuda na digestão e previne a constipação.",
+    "Hidrata a pele, melhorando sua aparência.",
+    "Auxilia os rins a eliminar toxinas do corpo.",
+    "Aumenta a energia e reduz a fadiga.",
+    "Pode ajudar a perder peso."
+  ];
+
+  // Escolha um benefício aleatório quando o componente for montado
+  useEffect(() => {
+    setCurrentBenefit(waterBenefits[Math.floor(Math.random() * waterBenefits.length)]);
+  }, []);
 
   useEffect(() => {
     console.log('Lembretes configurados:', reminders); // Log para debug
@@ -49,6 +69,8 @@ const WaterReminder = () => {
 
   const addWater = () => {
     setWaterCount(prev => prev + 1);
+    // Mostra um novo benefício aleatório cada vez que adiciona água
+    setCurrentBenefit(waterBenefits[Math.floor(Math.random() * waterBenefits.length)]);
     toast({
       title: "Muito bem! 🎉",
       description: "Continue assim, mantenha-se hidratado!",
@@ -81,6 +103,11 @@ const WaterReminder = () => {
       </div>
 
       <TimeSelector reminders={reminders} setReminders={setReminders} />
+
+      {/* Card de benefícios que aparece quando o contador é maior que zero */}
+      {waterCount > 0 && (
+        <WaterBenefitCard benefit={currentBenefit} />
+      )}
     </div>
   );
 };
